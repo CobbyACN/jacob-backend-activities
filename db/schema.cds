@@ -1,48 +1,18 @@
-namespace BackendActDay2;
- 
 
-entity Books {
-    ID:                 UUID        @description: 'Book ID';
-    borrowerName:       String(50)  @description: 'Borrowers ID';
-    bookTitle:          String(100) @description: 'Book Title';
-    authorName:         String(100) @description: 'Author Name';
-    readDate:           Date        @description: 'Date';
-};
+namespace MyProject;
 
- 
-
-entity Products {
-    key ProductID:      UUID        @description: 'Product ID';
-    ProductName:        String(100) @description: 'Product Name';
-    SupplierID:         String(100) @description: 'Supplier ID';
-    CategoryID:         String(100) @description: 'Category ID';
-    QuantityPerUnit:    String(100) @description: 'Quantity per Unit';
-    UnitPrice:          String(100) @description: 'Unit Price';
-    UnitsInStock:       Integer     @description: 'Units in Stock';
-    UnitsOnOrder:       Integer     @description: 'Units on Order';
-    ReorderLevel:       Integer     @description: 'Reorder Level';
-    Discontinued:       String(100) @description: 'Discontinued';
-};
-
- 
-
-entity Suppliers {
-    SupplierID:         UUID        @description: 'Supplier ID' ;
-    CompanyName:        String(100) @description: 'Company Name';
-    ContactName:        String(100) @description: 'Contact Name';
-    ContactTitle:       String(100) @description: 'Contact Title';
-    Address:            String(100) @description: 'Address';
-    City:               String(100) @description: 'City';
-    Region:             String(100) @description: 'Region';
-    PostalCode:         String(100) @description: 'Postal Code';
-    Country:            String(100) @description: 'Country';
-    Phone:              String(100) @description: 'Phone';
-    Fax:                Integer     @description: 'Fax';
-    HomePage:           String(200) @description: 'Home Page';
+entity Students {
+  key ID         : UUID;
+  firstName      : String;
+  lastName       : String;
+  email          : String;
+  age            : Integer;
 }
 
-entity Categories {
-    CategoryID:         String      @description: 'Category ID';
-    CategoryName:       String      @description: 'Category Name';
-    Description:        String      @description: 'Category Description';
+entity Books{
+  key ID      : UUID;
+  borrowerID  : String;   
+  bookTitle   : String;
+  authorName  : String;
+  readDate    : Date;
 }

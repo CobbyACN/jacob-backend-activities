@@ -1,0 +1,79 @@
+
+@baseUrl = http://localhost:4004/odata/v4
+
+### 1 — BRW-001
+POST {{baseUrl}}/catalog/LogBooks
+Content-Type: application/json
+
+{
+  "borrowerID": "Hannah",
+  "bookTitle": "Patterns of Enterprise Application Architecture",
+  "authorName": "Martin Fowler",
+  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
+}
+
+### 2 — BRW-001
+POST {{baseUrl}}/catalog/LogBooks
+Content-Type: application/json
+
+{
+  "borrowerID": "Jacob",
+  "bookTitle": "Clean Architecture",
+  "authorName": "Robert C. Martin",
+  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
+}
+
+### 3 — BRW-001
+POST {{baseUrl}}/catalog/LogBooks
+Content-Type: application/json
+
+{
+  "borrowerID": "Josh",
+  "bookTitle": "Domain-Driven Design",
+  "authorName": "Eric Evans",
+  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
+}
+
+### 4 — BRW-002
+POST {{baseUrl}}/catalog/LogBooks
+Content-Type: application/json
+
+{
+  "borrowerID": "Gab",
+  "bookTitle": "Refactoring",
+  "authorName": "Martin Fowler",
+  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
+}
+
+### 5 — BRW-002
+POST {{baseUrl}}/catalog/LogBooks
+Content-Type: application/json
+
+{
+  "borrowerID": "Roro",
+  "bookTitle": "The Pragmatic Programmer",
+  "authorName": "Andrew Hunt",
+  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
+}
+
+### 6 — BRW-003
+POST {{baseUrl}}/catalog/LogBooks
+Content-Type: application/json
+
+{
+  "borrowerID": "Tin",
+  "bookTitle": "Clean Code",
+  "authorName": "Robert C. Martin",
+  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
+}
+
+### 7 — BRW-003
+POST {{baseUrl}}/catalog/LogBooks
+Content-Type: application/json
+
+{
+  "borrowerID": "Rochelle",
+  "bookTitle": "Working Effectively with Legacy Code",
+  "authorName": "Michael Feathers",
+  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
+}

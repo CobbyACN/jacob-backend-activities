@@ -1,0 +1,42 @@
+
+@baseUrl = http://localhost:4004/odata/v4
+@UUID = 2f012370-87c1-4581-a56a-eb92119e36e2
+
+### Service metadata (to verify service is up and endpoints exist)
+GET {{baseUrl}}/catalog/$metadata
+
+### Read Students (list all)
+GET {{baseUrl}}/catalog/Students HTTP/1.1
+
+### Create Student
+POST {{baseUrl}}/catalog/Students HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Wayne",
+  "email": "john.wayne@example.com",
+  "age": 21
+}
+
+### Update Student (change age)
+PATCH {{baseUrl}}/catalog/Students(ID='{{UUID}}') HTTP/1.1
+Content-Type: application/json
+
+{
+  "age": 22
+}
+
+### Delete Student
+DELETE {{baseUrl}}/catalog/Students(ID='{{UUID}}') HTTP/1.1
+
+### Read Books (entity read — optional verification)
+GET {{baseUrl}}/catalog/Books HTTP/1.1
+
+### Filter Books by borrower & order by date — optional
+
+#GET {{baseUrl}}/catalog/Books?$filter=borrowerID eq 'Hannah'&$orderby=readDate desc HTTP/1.1
+
+
+DELETE {{baseUrl}}/catalog/Books(ID='1fd6d785-8d73-4f56-8b0e-4801b2a1d22d') HTTP/1.1
+
