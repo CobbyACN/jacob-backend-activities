@@ -1,42 +1,74 @@
 
 @baseUrl = http://localhost:4004/odata/v4
-@UUID = 2f012370-87c1-4581-a56a-eb92119e36e2
 
-### Service metadata (to verify service is up and endpoints exist)
-GET {{baseUrl}}/catalog/$metadata
+### READ
+GET {{baseUrl}}/catalog/Books
 
-### Read Students (list all)
-GET {{baseUrl}}/catalog/Students HTTP/1.1
-
-### Create Student
-POST {{baseUrl}}/catalog/Students HTTP/1.1
+### CREATE 
+POST {{baseUrl}}/catalog/LogBooks
 Content-Type: application/json
 
 {
-  "firstName": "John",
-  "lastName": "Wayne",
-  "email": "john.wayne@example.com",
-  "age": 21
+  "borrowerID": "Jacob",
+  "bookTitle": "Batman",
+  "authorName": "Hector",
+  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
 }
 
-### Update Student (change age)
-PATCH {{baseUrl}}/catalog/Students(ID='{{UUID}}') HTTP/1.1
+### CREATE 
+POST {{baseUrl}}/catalog/LogBooks
 Content-Type: application/json
 
 {
-  "age": 22
+  "borrowerID": "Gab",
+  "bookTitle": "Superman",
+  "authorName": "Miguel",
+  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
 }
 
-### Delete Student
-DELETE {{baseUrl}}/catalog/Students(ID='{{UUID}}') HTTP/1.1
+### CREATE 
+POST {{baseUrl}}/catalog/LogBooks
+Content-Type: application/json
 
-### Read Books (entity read — optional verification)
+{
+  "borrowerID": "Josh",
+  "bookTitle": "Barbie",
+  "authorName": "Jose",
+  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
+}
+
+### CREATE 
+POST {{baseUrl}}/catalog/LogBooks
+Content-Type: application/json
+
+{
+  "borrowerID": "Roro",
+  "bookTitle": "Cinderella",
+  "authorName": "Nicky",
+  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
+}
+
+### CREATE 
+POST {{baseUrl}}/catalog/LogBooks
+Content-Type: application/json
+
+{
+  "borrowerID": "Johnly",
+  "bookTitle": "Aqua man",
+  "authorName": "Zues",
+  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
+}
+
+### FETCH BOOKS / Read for Jacob
+POST {{baseUrl}}/catalog/FetchBooks
+Content-Type: application/json
+
+{
+  "borrowerID": "Jacob"
+}
+
+### READ / fetch ALL
 GET {{baseUrl}}/catalog/Books HTTP/1.1
 
-### Filter Books by borrower & order by date — optional
-
-#GET {{baseUrl}}/catalog/Books?$filter=borrowerID eq 'Hannah'&$orderby=readDate desc HTTP/1.1
-
-
-DELETE {{baseUrl}}/catalog/Books(ID='1fd6d785-8d73-4f56-8b0e-4801b2a1d22d') HTTP/1.1
-
+### DELETE (replace ID with a real one from READ ALL)
+DELETE {{baseUrl}}/catalog/Books(ID='9abef644-6af0-4006-8dc2-b398b5d1334c') HTTP/1.1
