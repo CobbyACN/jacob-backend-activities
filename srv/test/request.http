@@ -1,74 +1,96 @@
+@baseUrl = http://localhost:4004/odata/v4/catalog
 
-@baseUrl = http://localhost:4004/odata/v4
-
-### READ
-GET {{baseUrl}}/catalog/Books
-
-### CREATE 
-POST {{baseUrl}}/catalog/LogBooks
+### Insert Products from Northwind
+POST {{baseUrl}}/insertTBProducts
 Content-Type: application/json
 
-{
-  "borrowerID": "Jacob",
-  "bookTitle": "Batman",
-  "authorName": "Hector",
-  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
-}
+{}
 
-### CREATE 
-POST {{baseUrl}}/catalog/LogBooks
+### Insert Suppliers from Northwind
+POST {{baseUrl}}/insertTBSuppliers
 Content-Type: application/json
 
-{
-  "borrowerID": "Gab",
-  "bookTitle": "Superman",
-  "authorName": "Miguel",
-  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
-}
+{}
 
-### CREATE 
-POST {{baseUrl}}/catalog/LogBooks
+### Insert Categories from Northwind
+POST {{baseUrl}}/insertTBCategories
 Content-Type: application/json
 
-{
-  "borrowerID": "Josh",
-  "bookTitle": "Barbie",
-  "authorName": "Jose",
-  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
-}
+{}
 
-### CREATE 
-POST {{baseUrl}}/catalog/LogBooks
-Content-Type: application/json
+#####################################################
+### Fetch Combined Data (Task 3 Output)
+GET {{baseUrl}}/fetchData()
 
-{
-  "borrowerID": "Roro",
-  "bookTitle": "Cinderella",
-  "authorName": "Nicky",
-  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
-}
 
-### CREATE 
-POST {{baseUrl}}/catalog/LogBooks
-Content-Type: application/json
+# ### READ
+# GET {{baseUrl}}/catalog/Books
 
-{
-  "borrowerID": "Johnly",
-  "bookTitle": "Aqua man",
-  "authorName": "Zues",
-  "readDate": "{{$datetime 'YYYY-MM-DD'}}"
-}
+# ### CREATE 
+# POST {{baseUrl}}/catalog/LogBooks
+# Content-Type: application/json
 
-### FETCH BOOKS / Read for Jacob
-POST {{baseUrl}}/catalog/FetchBooks
-Content-Type: application/json
+# {
+#   "borrowerID": "Jacob",
+#   "bookTitle": "Batman",
+#   "authorName": "Hector",
+#   "readDate": "{{$datetime 'YYYY-MM-DD'}}"
+# }
 
-{
-  "borrowerID": "Jacob"
-}
+# ### CREATE 
+# POST {{baseUrl}}/catalog/LogBooks
+# Content-Type: application/json
 
-### READ / fetch ALL
-GET {{baseUrl}}/catalog/Books HTTP/1.1
+# {
+#   "borrowerID": "Gab",
+#   "bookTitle": "Superman",
+#   "authorName": "Miguel",
+#   "readDate": "{{$datetime 'YYYY-MM-DD'}}"
+# }
 
-### DELETE (replace ID with a real one from READ ALL)
-DELETE {{baseUrl}}/catalog/Books(ID='9abef644-6af0-4006-8dc2-b398b5d1334c') HTTP/1.1
+# ### CREATE 
+# POST {{baseUrl}}/catalog/LogBooks
+# Content-Type: application/json
+
+# {
+#   "borrowerID": "Josh",
+#   "bookTitle": "Barbie",
+#   "authorName": "Jose",
+#   "readDate": "{{$datetime 'YYYY-MM-DD'}}"
+# }
+
+# ### CREATE 
+# POST {{baseUrl}}/catalog/LogBooks
+# Content-Type: application/json
+
+# {
+#   "borrowerID": "Roro",
+#   "bookTitle": "Cinderella",
+#   "authorName": "Nicky",
+#   "readDate": "{{$datetime 'YYYY-MM-DD'}}"
+# }
+
+# ### CREATE 
+# POST {{baseUrl}}/catalog/LogBooks
+# Content-Type: application/json
+
+# {
+#   "borrowerID": "Johnly",
+#   "bookTitle": "Aqua man",
+#   "authorName": "Zues",
+#   "readDate": "{{$datetime 'YYYY-MM-DD'}}"
+# }
+
+# ### FETCH BOOKS / Read for Jacob
+# POST {{baseUrl}}/catalog/FetchBooks
+# Content-Type: application/json
+
+# {
+#   "borrowerID": "Jacob"
+# }
+
+# ### READ / fetch ALL
+# GET {{baseUrl}}/catalog/Books HTTP/1.1
+
+# ### DELETE (replace ID with a real one from READ ALL)
+# DELETE {{baseUrl}}/catalog/Books(ID='9abef644-6af0-4006-8dc2-b398b5d1334c') HTTP/1.1

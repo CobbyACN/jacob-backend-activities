@@ -1,5 +1,5 @@
 
-// srv/getter/index.js
+
 const cds = require('@sap/cds');
 
 async function FetchBooks(borrowerID, req) {
