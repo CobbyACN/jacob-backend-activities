@@ -3,8 +3,7 @@ using MyProject as my from '../db/schema';
 service CatalogService {
   entity Books as projection on my.Books;
   entity Products as projection on my.PRODUCTS;
-  entity Suppliers as projection on my.SUPPLIERS;
-  entity Categories as projection on my.CATEGORIES;
+
   
   action LogBooks(
     borrowerID : String(50),

@@ -1,0 +1,20 @@
+<mvc:View
+    controllerName="febootcamp.controller.PageTwo"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page
+        id="PageTwo"
+        title="Fiori App" 
+        titleLevel="H5"
+        class="sapUiResponsiveContentPadding"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+        
+
+        <Text id="helloText" text="Welcome to Page 2" class="bigText" />
+        
+    </Page>
+
+</mvc:View>
