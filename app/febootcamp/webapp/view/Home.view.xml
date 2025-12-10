@@ -1,10 +1,13 @@
 <mvc:View controllerName="febootcamp.controller.Home"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data">
     
     <Page id="page" title="Fiori App">
         <content>
-            <!-- HBox with Text and Button -->
+           
             <HBox id="hboxx">
                 <Text id="authorName" class="bigText" text="Hello, Jacob!" />
                 <Button 
@@ -15,38 +18,40 @@
                 />
             </HBox>
 
-            <!-- Panel with Book Chart (Dataset and Series selection) -->
+           
             <Panel 
                 id="booksPanel" 
                 class="sapUiResponsiveMargin" 
                 expandable="true" 
                 expanded="true" 
-                headerText="Book Chart" 
+                headerText="VizFrame Chart" 
                 width="auto">
                 <content>
-                    <!-- Dataset Selection -->
-                    <VBox id="bookGraph" class="sapUiSmallMargin">
-                        <Label id="datasetLabel" text="{/dataset/name}" design="Bold" class="sapUiTinyMarginBottom"/>
-                        <RadioButtonGroup 
-                            id="datasetRadioGroup"
-                            columns="1"
-                            select="onDatasetSelected">
-                           
-                        </RadioButtonGroup>
-                    </VBox>
-
-                    <!-- Series Selection -->
-                    <VBox id="bookGraph2" class="sapUiSmallMargin">
-                        <Label id="seriesLabel" text="{/series/name}" design="Bold" class="sapUiTinyMarginBottom"/>
-                        <RadioButtonGroup 
-                            id="seriesRadioGroup"
-                            columns="1"
-                            select="onSeriesSelected">
-                            
-                        </RadioButtonGroup>
-                    </VBox>
-                </content>
+    <viz:VizFrame id="idVizFrame"
+                  uiConfig="{applicationSet:'fiori'}"
+                  height="300px"
+                  width="100%"
+                  vizType="column"
+                  vizProperties="{ title: { text: 'Created Clubs Monthly', visible: true } }">
+        <viz:dataset>
+            <viz.data:FlattenedDataset id="idVizDataset" data="{viz>/SalesData}">
+                <viz.data:dimensions>
+                    <viz.data:DimensionDefinition id="idDimMonth" name="Month" value="{viz>Month}" />
+                </viz.data:dimensions>
+                <viz.data:measures>
+                    <viz.data:MeasureDefinition id="idMeasCreatedClubs" name="Created Clubs" value="{viz>Value}" />
+                </viz.data:measures>
+            </viz.data:FlattenedDataset>
+        </viz:dataset>
+        <viz:feeds>
+            <viz.feeds:FeedItem id="idFeedValueAxis" uid="valueAxis" type="Measure" values="Created Clubs" />
+            <viz.feeds:FeedItem id="idFeedCategoryAxis" uid="categoryAxis" type="Dimension" values="Month" />
+        </viz:feeds>
+    </viz:VizFrame>
+</content>
             </Panel>
+            <Panel id="Books1" class="panelStyle" expandable="true" expanded="true" headerText="List" width="auto">
+                </Panel>
         </content>
 
         <!-- Page Footer with Navigation Button -->
