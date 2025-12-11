@@ -50,8 +50,19 @@
     </viz:VizFrame>
 </content>
             </Panel>
-            <Panel id="Books1" class="panelStyle" expandable="true" expanded="true" headerText="List" width="auto">
-                </Panel>
+            
+<Panel id="products" headerText="List" expandable="true" expanded="true" class="sapUiResponsiveMargin">
+  <content>
+    <List
+    id="prdtname" items="{
+      path: '/Products'
+}">
+  <StandardListItem id="unitstocknumbers" title="{ProductName}" description="Units In Stock: {UnitsInStock}" />
+</List>
+
+  </content>
+</Panel>
+
         </content>
 
         <!-- Page Footer with Navigation Button -->

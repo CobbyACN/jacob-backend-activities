@@ -6,7 +6,7 @@ import JSONModel from "sap/ui/model/json/JSONModel";   // <-- add this import
 export default class Home extends Controller {
 
     public onInit(): void {
-        // Mock data for VizFrame
+        // Demo Data
         const oVizModel = new JSONModel({
             SalesData: [
                 { Month: "January", Value: 10 },
@@ -17,7 +17,6 @@ export default class Home extends Controller {
             ]
         });
 
-        // Attach model to the view (non-null assertion avoids TS error)
         this.getView()!.setModel(oVizModel, "viz");
     }
 
